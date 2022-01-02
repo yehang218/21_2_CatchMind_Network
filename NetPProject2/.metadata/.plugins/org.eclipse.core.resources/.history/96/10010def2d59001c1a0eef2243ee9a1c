@@ -1,0 +1,46 @@
+
+// ChatMsg.java 채팅 메시지 ObjectStream 용.
+import java.awt.event.MouseEvent;
+import java.io.Serializable;
+import javax.swing.ImageIcon;
+import java.awt.*;
+
+class ChatMsg implements Serializable {
+	private static final long serialVersionUID = 1L;
+	public String code;
+	public String UserName;
+	public String data;
+	public ImageIcon img;
+	public MouseEvent mouse_e;
+	public int pen_size; // pen size
+	public Color c;
+	public String Q;
+	public String Order = "";
+	public int eraser_size;
+	public int EraserNum = 0;
+	public int score = 0;
+	
+	public String[] UserList;
+	
+	public ChatMsg(String UserName, String code, String msg) {
+		this.code = code;
+		this.UserName = UserName;
+		this.data = msg;
+	}
+	
+	public void setOrder(String Order) {
+		this.Order= Order;
+	}
+	
+	public String getOrder() {
+		return Order;
+	}
+	
+	public void setColor(Color c) {
+		this.c = c;
+	}
+	
+	public Color getColor() {
+		return c;
+	}
+}

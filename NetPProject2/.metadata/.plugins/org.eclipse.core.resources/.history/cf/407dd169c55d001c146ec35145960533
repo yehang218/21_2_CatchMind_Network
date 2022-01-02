@@ -1,0 +1,89 @@
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import ClientGameMain.Myaction;
+
+import java.awt.Color;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.SystemColor;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class GameLobby extends JFrame {
+	private JPanel contentPane;
+	
+	public GameLobby(String username, String ip_addr, String port_no){
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(500, 100, 400, 400);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnRoom1 = new JButton("ROOM1");
+		btnRoom1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ClientGameView view = new ClientGameView(username, ip_addr, port_no);
+				setVisible(false);
+			}
+		});
+		btnRoom1.setBounds(110, 157, 180, 33);
+		contentPane.add(btnRoom1);
+		
+		Myaction action = new Myaction();
+		btnRoom1.setBounds(12, 223, 205, 38);
+		contentPane.add(btnRoom1);
+		btnRoom1.addActionListener(action);
+		
+		
+		ImageIcon imgLogo = new ImageIcon(".\\Logo.png");
+		ImageIcon imgPanel = imageSetSize(imgLogo, 183, 123);
+		JLabel lblLogo =new JLabel("",imgPanel,JLabel.CENTER);
+		lblLogo.setBounds(110, 10, 180, 123);
+		contentPane.add(lblLogo);
+		
+		JButton btnRoom2 = new JButton("ROOM2");
+		btnRoom2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRoom2.setBounds(110, 200, 180, 33);
+		contentPane.add(btnRoom2);
+		
+		JButton btnRoom3 = new JButton("ROOM3");
+		btnRoom3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRoom3.setBounds(110, 243, 180, 33);
+		contentPane.add(btnRoom3);
+		
+		JButton btnClose = new JButton("\uC885\uB8CC");
+		btnClose.setBounds(150, 296, 100, 33);
+		contentPane.add(btnClose);
+	
+	}
+	
+	ImageIcon imageSetSize(ImageIcon icon, int i, int j) {
+		Image ximg = icon.getImage();
+		Image yimg = ximg.getScaledInstance(i, j, java.awt.Image.SCALE_SMOOTH);
+		ImageIcon xyimg = new ImageIcon(yimg);
+		return xyimg;
+	}
+	
+	class Myaction implements ActionListener // 내부클래스로 액션 이벤트 처리 클래스
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String Username
+			
+		}
+	}
+}

@@ -1,0 +1,13 @@
+import java.util.List;
+
+public class UserList {
+	private List userList;
+	
+	public void enterUser(String name) {
+		userList.add(name);
+	}
+	
+	public void exitUser(String name) {
+		userList.remove(name);
+	}
+}
